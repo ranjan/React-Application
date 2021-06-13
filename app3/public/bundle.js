@@ -56,11 +56,98 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(
-	  'p',
-	  null,
-	  ' Html Element attach to app node '
-	), document.getElementById('app'));
+	function Demo() {
+	  var name = {
+	    first: "Ranjan",
+	    last: "Kumar"
+	  };
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Function call: My name is ',
+	      name.first,
+	      ' ',
+	      name.last
+	    ),
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      ' hello '
+	    )
+	  );
+	}
+
+	var Welcome = function Welcome(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'Component call: My name is ',
+	      props.firstname
+	    ),
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'Component call: Wecome ',
+	      props.name
+	    )
+	  );
+	};
+
+	var App = function App() {
+	  var nameArray = ["A", "B", "c"];
+
+	  // Same using function
+	  var nameMapper = function nameMapper() {
+	    return nameArray.map(function (name) {
+	      return _react2.default.createElement(
+	        'li',
+	        null,
+	        ' ',
+	        name,
+	        ' '
+	      );
+	    });
+	  };
+
+	  var changeHandler = function changeHandler(event) {
+	    console.log(event.target.value);
+	  };
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(Welcome, { firstname: 'ranjan', lastname: 'kumar' }),
+	    '// Iteration using const Array',
+	    nameArray.map(function (name) {
+	      return _react2.default.createElement(
+	        'li',
+	        null,
+	        ' ',
+	        name,
+	        ' '
+	      );
+	    }),
+	    '// Iteration using jsx/component',
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      nameMapper()
+	    ),
+	    _react2.default.createElement(Welcome, { name: 'React' }),
+	    _react2.default.createElement('input', { onChange: changeHandler })
+	  );
+	};
+
+	{/* Rendering using function call */}
+	_reactDom2.default.render(_react2.default.createElement(Demo, null), document.getElementById('app1'));
+
+	{/*  Rendering using jsx/component */}
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app2'));
 
 /***/ }),
 /* 1 */
