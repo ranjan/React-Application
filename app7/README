@@ -1,0 +1,6 @@
+ES6 Webpack Dev Server
+
+#  npm install webpack-dev-server@1
+
+# ./node_modules/.bin/webpack-dev-server --content-base public --inline
+
