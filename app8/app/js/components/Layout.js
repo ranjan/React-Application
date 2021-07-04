@@ -12,6 +12,16 @@ export default class HelloWorld extends React.Component {
   }
 
 
+  HandleClick(){
+  	setInterval(() =>{
+  		this.setState(prevState =>({
+        this.state = {
+        	time: 0
+        }
+  		}))
+  	}
+  }
+
 	Changefn(){
 		console.log(this);
 		this.setState({
@@ -35,7 +45,8 @@ export default class HelloWorld extends React.Component {
         	<button onClick={this.Changefn.bind(this)}> Change First Name</button>
         	<br></br>
         	<Button ln={this.state.lastName} ChangeMe={this.Changeln.bind(this)}/>
-        </div>  
+        	<button onClick={this.HandleClick.bind(this)}
+        
 			)
 	}
 
